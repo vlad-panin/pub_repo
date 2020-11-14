@@ -1,3 +1,1 @@
-aluhaluh02
-blahblah02.alfa.bank.int:8080
-https://dededeapp04.alfa.bank.int:9090
+172.31.34.140
