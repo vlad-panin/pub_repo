@@ -1,4 +1,4 @@
 service:
   type: ClusterIP
   ports:
-    http: 8082
+    http: 8083
