@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: chartmuseum
+spec:
+  selector:
+    app: chartmuseum
+  ports:
+    - protocol: TCP
+      port: 8088
+      targetPort: http
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chartmuseum
+  labels:
+    app: chartmuseum
+spec:
+  containers:
+    - name: chartmuseum
+      image: ghcr.io/helm/chartmuseum:v0.14.0
+      imagePullPolicy: IfNotPresent
+      env:
+        - name: DEBUG
+          value: "1"
+        - name: STORAGE
+          value: "local"
+        - name: STORAGE_LOCAL_ROOTDIR
+          value: "/charts"
+      ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+      volumeMounts:
+        - mountPath: /charts
+          name: charts
+  volumes:
+    - name: charts
+      emptyDir: {}
+  restartPolicy: Always
