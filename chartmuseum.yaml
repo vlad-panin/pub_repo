@@ -7,7 +7,7 @@ spec:
     app: chartmuseum
   ports:
     - protocol: TCP
-      port: 8088
+      port: 8080
       targetPort: http
   type: ClusterIP
 ---

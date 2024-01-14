@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: devops
   sources:
-    - repoURL: 'https://charts.bitnami.com/bitnami'
+    - repoURL: 'http://chartmuseum.devops.svc:8080'
       chart: nginx
       targetRevision: 15.6.1
       helm:
