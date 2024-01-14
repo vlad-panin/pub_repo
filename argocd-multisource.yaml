@@ -9,12 +9,18 @@ spec:
     server: https://kubernetes.default.svc
     namespace: devops
   sources:
-    - repoURL: 'http://chartmuseum.devops.svc:8080'
-      chart: nginx
-      targetRevision: 15.6.1
+    - repoURL: 'https://github.com/vlad-panin/pub_repo.git'
+      path: nginx
+      targetRevision: main
       helm:
         valueFiles:
           - $values/nginx-values.yaml
+#    - repoURL: 'http://chartmuseum.devops.svc:8080'
+#      chart: nginx
+#      targetRevision: 15.6.3
+#      helm:
+#        valueFiles:
+#          - $values/nginx-values.yaml
     - repoURL: 'https://github.com/vlad-panin/pub_repo.git'
       targetRevision: main
       ref: values
