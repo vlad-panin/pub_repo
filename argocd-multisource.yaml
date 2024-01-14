@@ -1,13 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
+metadata:
+  name: nginx
+  namespace: argocd
 spec:
+  project: devops
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: devops
   sources:
-    - repoURL: 'https://prometheus-community.github.io/helm-charts'
-      chart: prometheus
-      targetRevision: 15.7.1
+    - repoURL: 'https://charts.bitnami.com/bitnami'
+      chart: nginx
+      targetRevision: 15.6.1
       helm:
         valueFiles:
-          - $values/charts/prometheus/values.yaml
-    - repoURL: 'https://git.example.com/org/value-files.git'
-      targetRevision: dev
+          - $values/nginx-values.yaml
+    - repoURL: 'https://github.com/vlad-panin/pub_repo.git'
+      targetRevision: main
       ref: values
