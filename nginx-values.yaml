@@ -12,5 +12,5 @@ autoscaling:
   enabled: true
   minReplicas: 1
   maxReplicas: 10
-  targetCPU: "100%"
-  targetMemory: "100%"
+  targetCPU: 100m
+  targetMemory: 128Mi
