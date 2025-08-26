@@ -1,3 +1,4 @@
+# https://argo-cd.readthedocs.io/en/stable/user-guide/multiple_sources/
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -9,12 +10,22 @@ spec:
     server: https://kubernetes.default.svc
     namespace: nginx
   sources:
-    - repoURL: https://charts.bitnami.com/bitnami
-      chart: nginx
-      targetRevision: 21.1.23
+#   вариант с чартом в чарт-репозитории
+#    - repoURL: https://charts.bitnami.com/bitnami
+#      chart: nginx
+#      targetRevision: 21.1.23
+#      helm:
+#        valueFiles:
+#          - $values/nginx-values.yaml
+#           $values' = / (корень репы) т.е. $values/nginx-values.yaml = /nginx-values.yaml
+#    вариант с чартом в гите
+    - repoURL: 'https://github.com/vlad-panin/pub_repo.git'
+      path: nginx
+      targetRevision: main
       helm:
         valueFiles:
           - $values/nginx-values.yaml
     - repoURL: 'https://github.com/vlad-panin/pub_repo.git'
       targetRevision: main
       ref: values
+# 'ref: values' = '$values' = / (корень репы) - просто запомнить, что так надо
