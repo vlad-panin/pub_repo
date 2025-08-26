@@ -13,7 +13,7 @@ spec:
       chart: nginx
       targetRevision: 21.1.23
     - repoURL: 'https://github.com/vlad-panin/pub_repo.git'
-      path: nginx
+      #path: nginx
       targetRevision: main
       helm:
         valueFiles:
