@@ -1,3 +1,4 @@
+# Must be 2
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -18,3 +19,6 @@ spec:
       helm:
         valueFiles:
           - $values/nginx-values.yaml
+    - repoURL: 'https://github.com/vlad-panin/pub_repo.git'
+      targetRevision: main
+      ref: values
