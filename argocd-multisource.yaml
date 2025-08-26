@@ -5,6 +5,9 @@ metadata:
   name: nginx
   namespace: argocd
 spec:
+  syncPolicy:
+    automated:
+      enabled: true
   project: default
   destination:
     server: https://kubernetes.default.svc
