@@ -1,8 +1,7 @@
-# Must be 2
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nginx-multisource
+  name: nginx
   namespace: argocd
 spec:
   project: default
