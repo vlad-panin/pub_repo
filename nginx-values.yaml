@@ -3,7 +3,7 @@ revisionHistoryLimit: 1
 service:
   type: ClusterIP
   ports:
-    http: 8083
+    http: 8082
 
 resources:
   requests:
