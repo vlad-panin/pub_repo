@@ -9,10 +9,3 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
-
-autoscaling:
-  enabled: true
-  minReplicas: 1
-  maxReplicas: 10
-  targetCPU: 100
-  targetMemory: 100
